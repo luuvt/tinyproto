@@ -97,7 +97,7 @@ bool Proto::send(const IPacket &packet, uint32_t timeout)
         {
             break;
         }
-        if ( static_cast<uint32_t>(tiny_millis() - startTs) >= timeout )
+        if (tiny_millis() - startTs >= timeout )
         {
             // Cancel send operation if possible
             m_link->flushTx();
@@ -158,7 +158,7 @@ IPacket *Proto::read(uint32_t timeout)
             m_link->runTx();
             m_link->runRx();
         }
-        if ( static_cast<uint32_t>(tiny_millis() - startTs) >= timeout )
+        if ( tiny_millis() - startTs >= timeout )
         {
             break;
         }
